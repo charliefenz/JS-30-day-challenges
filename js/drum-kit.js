@@ -10,13 +10,14 @@ Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
     addTransitionEndEvent(drumKeyboardElement);
 })
 
-function handleKeyPress(e) {
-    const eventKeyCode = e.keyCode;
-    const matchedDrumKeyboardElement = findDrumMatch(eventKeyCode, drumKeyboardList);
-    const matchedDrumSoundElement = findDrumMatch(eventKeyCode, drumSoundList);
+function handleKeyPress(keyDownEvent) {
+    const keyDownKeyCode = keyDownEvent.keyCode;
+    const matchedDrumKeyboardElement = findDrumMatch(keyDownKeyCode, drumKeyboardList);
+    const matchedDrumSoundElement = findDrumMatch(keyDownKeyCode, drumSoundList);
     highlightDrumItem(matchedDrumKeyboardElement);
     playSound(matchedDrumSoundElement);
 }
+
 function findDrumMatch(eventKeyCode, drumList) {
     let matchedDrumElement = null;
     Array.from(drumList).forEach(drumElement => {
@@ -27,21 +28,26 @@ function findDrumMatch(eventKeyCode, drumList) {
     });
     return matchedDrumElement;
 }
+
 function highlightDrumItem(drumKeyboardElement) {
     getGrandParentNode(drumKeyboardElement).classList.add(transitionClassName);
 }
+
 function playSound(drumSoundElement) {
     if (!drumSoundElement.ended) {
         drumSoundElement.load();
     }
     drumSoundElement.play();
 }
+
 function addTransitionEndEvent(drumKeyboardElement) {
     getGrandParentNode(drumKeyboardElement).addEventListener('transitionend', removeClass)
 }
+
 function removeClass() {
     this.classList.remove(transitionClassName);
 }
+
 function getGrandParentNode(grandsonElement) {
     return grandsonElement.parentNode.parentNode;
 }
