@@ -1,7 +1,9 @@
-const className = 'keyboard-letter';
+const drumKeyboardClass = 'keyboard-letter';
 const dataKeyAttName = 'data-key-code';
 const transitionClassName = 'selected';
-const drumKeyboardList = document.getElementsByClassName(className);
+const drumSoundClass = 'keyboard-sound';
+const drumKeyboardList = document.getElementsByClassName(drumKeyboardClass);
+const drumSoundList = document.getElementsByClassName(drumSoundClass);
 
 window.addEventListener('keydown', handleKeyPress);
 Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
@@ -10,21 +12,29 @@ Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
 
 function handleKeyPress(e) {
     const eventKeyCode = e.keyCode;
-    const matchedDrumKeyboardElement = findDrumKeyboardMatch(eventKeyCode, drumKeyboardList);
+    const matchedDrumKeyboardElement = findDrumMatch(eventKeyCode, drumKeyboardList);
+    const matchedDrumSoundElement = findDrumMatch(eventKeyCode, drumSoundList);
     highlightDrumItem(matchedDrumKeyboardElement);
+    playSound(matchedDrumSoundElement);
 }
-function findDrumKeyboardMatch(eventKeyCode, drumKeyboardList) {
-    let matchedDrumKeyboardElement = null;
-    Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
-        let drumKey = drumKeyboardElement.getAttribute(dataKeyAttName);
+function findDrumMatch(eventKeyCode, drumList) {
+    let matchedDrumElement = null;
+    Array.from(drumList).forEach(drumElement => {
+        let drumKey = drumElement.getAttribute(dataKeyAttName);
         if (eventKeyCode == drumKey) {
-            return matchedDrumKeyboardElement = drumKeyboardElement;
+            return matchedDrumElement = drumElement;
         }
     });
-    return matchedDrumKeyboardElement;
+    return matchedDrumElement;
 }
 function highlightDrumItem(drumKeyboardElement) {
     getGrandParentNode(drumKeyboardElement).classList.add('selected');
+}
+function playSound(drumSoundElement) {
+    if (!drumSoundElement.ended) {
+        drumSoundElement.load();
+    }
+    drumSoundElement.play();
 }
 function addTransitionEndEvent(drumKeyboardElement) {
     getGrandParentNode(drumKeyboardElement).addEventListener('transitionend', removeClass)
