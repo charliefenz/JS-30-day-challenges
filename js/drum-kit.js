@@ -28,7 +28,7 @@ function findDrumMatch(eventKeyCode, drumList) {
     return matchedDrumElement;
 }
 function highlightDrumItem(drumKeyboardElement) {
-    getGrandParentNode(drumKeyboardElement).classList.add('selected');
+    getGrandParentNode(drumKeyboardElement).classList.add(transitionClassName);
 }
 function playSound(drumSoundElement) {
     if (!drumSoundElement.ended) {
