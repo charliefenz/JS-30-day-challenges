@@ -10,8 +10,8 @@ function handleKeyPress(e) {
 function findDrumItemMatch(eventKeyCode, drumItemKeyBoardLetterList) {
     let drumItemFoundMatch = false;
     Array.from(drumItemKeyBoardLetterList).forEach(element => {
-        let dataKeyCode = element.getAttribute(dataKeyAttName);
-        if (eventKeyCode == dataKeyCode) {
+        let elementDataKeyCode = element.getAttribute(dataKeyAttName);
+        if (eventKeyCode == elementDataKeyCode) {
             return drumItemFoundMatch = true;
         }
     });
