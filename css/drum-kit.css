@@ -15,6 +15,7 @@ body {
     margin: 1.5vw;
     border-radius: 50%;
     vertical-align: middle;
+    transition: all 0.05s;
 }
 .drum-item:before {
     content:'';
@@ -25,4 +26,8 @@ body {
 .drum-item p {
     text-align: center;
     padding: 0.25em;
+}
+.selected {
+    border: 3px solid gold;
+    transform: scale(1.2);
 }
