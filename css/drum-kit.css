@@ -1,15 +1,28 @@
 body {
-    background-color: lightgray;
-    width: 100VW;
+    width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    align-content: center;
 }
 .drum-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    width: 10vw;
-    height: 10vw;
+    min-width: 1em;
+    margin: 1.5vw;
     border-radius: 50%;
-    margin: 0 1vw;
+    vertical-align: middle;
+}
+.drum-item:before {
+    content:'';
+    float: left;
+    width: auto;
+    padding-bottom: 100%;
+}
+.drum-item p {
+    text-align: center;
+    padding: 0.25em;
 }
