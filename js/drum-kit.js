@@ -1,21 +1,36 @@
 const className = 'keyboard-letter';
 const dataKeyAttName = 'data-key-code';
+const drumKeyboardList = document.getElementsByClassName(className);
 
 function handleKeyPress(e) {
     const eventKeyCode = e.keyCode;
-    const drumItemKeyBoardLetterList = document.getElementsByClassName(className);
-    const matchedDrumKey = findDrumItemMatch(eventKeyCode, drumItemKeyBoardLetterList);
+    const matchedDrumKeyboardElement = findDrumKeyboardMatch(eventKeyCode, drumKeyboardList);
+    highlightDrumItem(matchedDrumKeyboardElement);
 }
-
-function findDrumItemMatch(eventKeyCode, drumItemKeyBoardLetterList) {
-    let drumItemFoundMatch = false;
-    Array.from(drumItemKeyBoardLetterList).forEach(element => {
-        let elementDataKeyCode = element.getAttribute(dataKeyAttName);
-        if (eventKeyCode == elementDataKeyCode) {
-            return drumItemFoundMatch = true;
+function findDrumKeyboardMatch(eventKeyCode, drumKeyboardList) {
+    let matchedDrumKeyboardElement = null;
+    Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
+        let drumKey = drumKeyboardElement.getAttribute(dataKeyAttName);
+        if (eventKeyCode == drumKey) {
+            return matchedDrumKeyboardElement = drumKeyboardElement;
         }
     });
-    return drumItemFoundMatch;
+    return matchedDrumKeyboardElement;
+}
+function highlightDrumItem(drumKeyboardElement) {
+    const drumItemNode = drumKeyboardElement.parentNode.parentNode;
+    drumItemNode.classList.add('selected');
+}
+function addTransitionEndEvent(drumKeyboardElement) {
+    const drumItemNode = drumKeyboardElement.parentNode.parentNode;
+    drumItemNode.addEventListener('transitionend', removeClass)
+}
+function removeClass() {
+    this.classList.remove('selected');
 }
 
 window.addEventListener('keydown', handleKeyPress);
+Array.from(drumKeyboardList).forEach(drumKeyboardElement => {
+    addTransitionEndEvent(drumKeyboardElement);
+})
+
