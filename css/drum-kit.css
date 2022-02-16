@@ -6,6 +6,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     align-content: center;
 }
+
 .drum-item {
     display: inline-flex;
     align-items: center;
@@ -17,16 +18,19 @@ body {
     vertical-align: middle;
     transition: all 0.07s;
 }
+
 .drum-item:before {
     content:'';
     float: left;
     width: auto;
     padding-bottom: 100%;
 }
+
 .drum-item p {
     text-align: center;
     padding: 0.25em;
 }
+
 .selected {
     border: 5px solid gold;
     transform: scale(1.1);
