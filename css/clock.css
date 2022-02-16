@@ -1,0 +1,53 @@
+body {
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+#clock-shape {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tick {
+    position: absolute;
+    transform-origin: 0;
+    left: 50%;
+}
+
+.seconds-tick {
+    transform: rotate(-90deg);
+    width: 49%;
+    background-color: rgb(49, 49, 212);
+    height: 3px;
+}
+
+.minutes-tick {
+    transform: rotate(-90deg);
+    width: 42%;
+    background-color: rgb(24, 24, 155);
+    height: 5px;
+}
+
+.hours-tick {
+    transform: rotate(-90deg);
+    width: 35%;
+    background-color: rgb(11, 11, 48);
+    height: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    #clock-shape {
+        width: 50vh;
+        height: 50vh;
+    }
+}
