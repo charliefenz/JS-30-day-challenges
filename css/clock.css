@@ -24,21 +24,21 @@ body {
     left: 50%;
 }
 
-.seconds-tick {
+#seconds-tick {
     transform: rotate(-90deg);
     width: 49%;
     background-color: rgb(49, 49, 212);
     height: 3px;
 }
 
-.minutes-tick {
+#minutes-tick {
     transform: rotate(-90deg);
     width: 42%;
     background-color: rgb(24, 24, 155);
     height: 5px;
 }
 
-.hours-tick {
+#hours-tick {
     transform: rotate(-90deg);
     width: 35%;
     background-color: rgb(11, 11, 48);
