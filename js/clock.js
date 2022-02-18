@@ -19,11 +19,6 @@ function changeRotation(styleSheet, cssSelector, unit) {
     `)
 }
 
-function findCSSRuleIndex(styleSheetCSSRules, cssSelector) {
-    return Array.from(styleSheetCSSRules).findIndex(item => item.selectorText === cssSelector);
-}
-
 const styleSheet = getUniqueStyleSheet('clockCSS');
 changeRotation(styleSheet, '.seconds-rotation', '0deg');
-
 
