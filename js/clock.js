@@ -22,3 +22,12 @@ function changeRotation(styleSheet, cssSelector, unit) {
 const styleSheet = getUniqueStyleSheet('clockCSS');
 changeRotation(styleSheet, '.seconds-rotation', '0deg');
 
+function turnTimeIntoDegrees(hourlyTimeFrame, value) {
+    const hourFactor = 360 / 12;
+    const notHourFactor = 360 / 60;
+    if (hourlyTimeFrame) {
+        return hourFactor + (value -1)*hourFactor;
+    } else {
+        return notHourFactor + (value -1)*notHourFactor;
+    }
+}
