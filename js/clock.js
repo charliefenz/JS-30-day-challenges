@@ -8,19 +8,13 @@ function findCSSRuleIndex(styleSheetCSSRules, cssSelector) {
     return Array.from(styleSheetCSSRules).findIndex(item => item.selectorText === cssSelector);
 }
 
-function changeRotation(styleSheet, cssSelector, unit) {
-    const styleSheetCSSRules = styleSheet.cssRules;
-    const cssRuleIndex = findCSSRuleIndex(styleSheetCSSRules, cssSelector);
-    styleSheet.deleteRule(cssRuleIndex);
-    styleSheet.insertRule(`
-        ${cssSelector} {
-            transform: rotate(${unit});
-        }
-    `)
-}
+function changeRotation(cssSelector, unit) {
+    const cssRuleIndex = findCSSRuleIndex(styleSheet.cssRules, cssSelector);
+    const unitDeg = `${unit}deg`;
 
-const styleSheet = getUniqueStyleSheet('clockCSS');
-changeRotation(styleSheet, '.seconds-rotation', '0deg');
+    styleSheet.deleteRule(cssRuleIndex);
+    styleSheet.insertRule(`${cssSelector} {transform: rotate(${unitDeg});}`);
+}
 
 function turnTimeIntoDegrees(hourlyTimeFrame, value) {
     const hourFactor = 360 / 12;
