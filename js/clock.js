@@ -32,3 +32,16 @@ function fixDegreesToFitClockPosition(degrees) {
     return degrees -90;
 }
 
+setInterval(() => {
+    const dateNow = new Date();
+    const secondsNow = dateNow.getSeconds();
+    const minutesNow = dateNow.getMinutes();
+    const hoursNow = dateNow.getHours();
+
+    console.log(`${hoursNow}:${minutesNow}:${secondsNow}`);
+
+    changeRotation(secondsCSSSelector, turnTimeIntoDegrees(notHourly, secondsNow));
+    changeRotation(minutesCSSSelector, turnTimeIntoDegrees(notHourly, minutesNow));
+    changeRotation(hoursCSSSelector, turnTimeIntoDegrees(hourly, hoursNow));
+
+}, 1000);
