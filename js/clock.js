@@ -1,3 +1,10 @@
+const styleSheet = getUniqueStyleSheet('clockCSS');
+const secondsCSSSelector = '.seconds-rotation';
+const minutesCSSSelector = '.minutes-rotation';
+const hoursCSSSelector = '.hours-rotation';
+const notHourly = false;
+const hourly = true;
+
 function getUniqueStyleSheet(styleSheetTitle) {
     const styleSheet = Array.from(document.styleSheets).filter(item => item.title === styleSheetTitle);
     const styleSheetUnit = styleSheet[0];
