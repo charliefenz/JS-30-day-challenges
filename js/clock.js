@@ -4,6 +4,10 @@ function getUniqueStyleSheet(styleSheetTitle) {
     return styleSheetUnit;
 }
 
+function findCSSRuleIndex(styleSheetCSSRules, cssSelector) {
+    return Array.from(styleSheetCSSRules).findIndex(item => item.selectorText === cssSelector);
+}
+
 function changeRotation(styleSheet, cssSelector, unit) {
     const styleSheetCSSRules = styleSheet.cssRules;
     const cssRuleIndex = findCSSRuleIndex(styleSheetCSSRules, cssSelector);
