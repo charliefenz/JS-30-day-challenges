@@ -20,11 +20,14 @@ function turnTimeIntoDegrees(hourlyTimeFrame, value) {
     const hourFactor = 360 / 12;
     const notHourFactor = 360 / 60;
     if (hourlyTimeFrame) {
-        return hourFactor + (value -1)*hourFactor;
+        const hourlyDegrees = hourFactor + (value - 1) * hourFactor;
+        return fixDegreesToFitClockPosition(hourlyDegrees);
     } else {
-        return notHourFactor + (value -1)*notHourFactor;
+        const notHourlyDegrees = notHourFactor + (value - 1) * notHourFactor;
+        return fixDegreesToFitClockPosition(notHourlyDegrees);
     }
 }
+
 function fixDegreesToFitClockPosition(degrees) {
     return degrees -90;
 }
