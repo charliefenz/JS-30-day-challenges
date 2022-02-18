@@ -25,3 +25,7 @@ function turnTimeIntoDegrees(hourlyTimeFrame, value) {
         return notHourFactor + (value -1)*notHourFactor;
     }
 }
+function fixDegreesToFitClockPosition(degrees) {
+    return degrees -90;
+}
+
