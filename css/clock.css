@@ -23,6 +23,8 @@ body {
     transform-origin: 0;
     left: 50%;
     border-radius: 5px;
+    transition: all 0.2s;
+    transition-timing-function: cubic-bezier(0.15, 2.57, 0.58, 1);
 }
 
 #seconds-tick {
