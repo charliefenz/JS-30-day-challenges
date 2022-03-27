@@ -1,0 +1,80 @@
+:root {
+    --spacing-bar: 0%;
+    --blur-bar: 0%;
+    --base-color-picker: #ffffff;
+}
+
+body {
+    background-color: rgb(28, 51, 126);
+    width: 100%;
+    color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem;
+}
+
+#title-JS {
+    color: var(--base-color-picker);
+}
+
+body > div {
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.img-controls {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.img-controls > div {
+    padding: 1rem 0;
+}
+
+.img-controls span {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.img-controls input {
+    cursor: pointer;
+}
+
+.img-container {
+    background-color: var(--base-color-picker);
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.img-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    transform: translate(var(--spacing-bar),var(--spacing-bar));
+}
+
+.img {
+    width: 100%;
+    filter: blur(var(--blur-bar));
+}
+
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .img-container {
+        width: 80%;
+        padding: 30px;
+    }
+
+}

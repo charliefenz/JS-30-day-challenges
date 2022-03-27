@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables with JS</title>
+    <link rel="stylesheet" type="text/css" href="./css/css-variables.css" title="css-variables">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+</head>
+<body>
+    <h1>Update CSS Variables with <span id="title-JS">JS</span></h1>
+    <div class="img-controls">
+        <div class="spacing-control">
+            <span>Spacing:</span>
+            <input type="range" name="spacing-bar" id="spacing-bar" value="0" onchange="changeImgProperty(this.id, this.value)">
+        </div>
+        <div class="blur-control">
+            <span>Blur:</span>
+            <input type="range" name="blur-bar" id="blur-bar" value="0" onchange="changeImgProperty(this.id, this.value)">
+        </div>
+        <div class="base-color">
+            <span>Base Color:</span>
+            <input type="color" value="#ffffff" name="base-color-picker" id="base-color-picker" onchange="changeImgProperty(this.id, this.value)">
+        </div>
+    </div>
+    <div class="img-container">
+        <div class="img-wrapper">
+            <img src="./assets/images/ocean-view.jpg" alt="ocean-view" class="img">
+        </div>
+    </div>
+    <script src="./js/css-variables.js"></script>
+</body>
+</html>
