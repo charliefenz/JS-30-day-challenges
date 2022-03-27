@@ -1,3 +1,9 @@
+:root {
+    --spacing-bar: 0%;
+    --blur-bar: 0%;
+    --base-color-picker: #ffffff;
+}
+
 body {
     background-color: rgb(28, 51, 126);
     width: 100%;
@@ -11,9 +17,12 @@ h1 {
     margin: 1rem;
 }
 
+#title-JS {
+    color: var(--base-color-picker);
+}
+
 body > div {
     margin: 1rem 0;
-    padding: 1rem;
     width: 100%;
 }
 
@@ -35,15 +44,27 @@ body > div {
     margin-right: 1rem;
 }
 
+.img-controls input {
+    cursor: pointer;
+}
+
 .img-container {
-    margin: 1rem auto;
+    background-color: var(--base-color-picker);
     width: 90%;
-    background-color: white;
-    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.img-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    transform: translate(var(--spacing-bar),var(--spacing-bar));
 }
 
 .img {
     width: 100%;
+    filter: blur(var(--blur-bar));
 }
 
 @media screen and (min-width: 1024px) {
@@ -53,5 +74,7 @@ body > div {
 
     .img-container {
         width: 80%;
+        padding: 30px;
     }
+
 }
