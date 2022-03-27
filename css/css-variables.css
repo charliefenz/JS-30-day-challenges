@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(28, 51, 126);
+    width: 100%;
+    color: white;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem;
+}
+
+body > div {
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 100%;
+}
+
+.img-controls {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.img-controls > div {
+    padding: 1rem 0;
+}
+
+.img-controls span {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.img-container {
+    margin: 1rem auto;
+    width: 90%;
+    background-color: white;
+    aspect-ratio: 16 / 9;
+}
+
+.img {
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .img-container {
+        width: 80%;
+    }
+}
