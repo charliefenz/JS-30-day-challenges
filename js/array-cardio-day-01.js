@@ -91,6 +91,16 @@ function prepareArray(results) {
 
     return preparedArray;
 }
+
+function filterEx1() {
+    let filtered = [
+        1,
+        inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600)
+    ];
+
+    printResults(filtered);
+}
+
 // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
