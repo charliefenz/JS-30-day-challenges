@@ -15,7 +15,9 @@
     <h1>Array Cardio Day 01</h1>
     <div class="title">
         <p>Given these two arrays: </p>
-        <pre><code class="language-typescript">
+        <ol>
+            <li>
+                <pre><code class="language-javascript">
 const inventors = [
     { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
     { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
@@ -30,17 +32,32 @@ const inventors = [
     { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
     { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
 ];
-        </code></pre>
-        <br>
-        <pre><code class="language-javascript">
-const people = [
-'Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+                </code></pre>
+            </li>
+            <li>
+                <pre><code class="language-javascript">
+const people = ['Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
 'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
 'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
 'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
-'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
-];
-        </code></pre>
+'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'];
+                </code></pre>
+            </li>
+        </ol>
+    </div>
+    <div class="button-range">
+        <button onclick="filterEx1()">1 .filter()</button>
+        <button>2 .map()</button>
+        <button>3 .sort()</button>
+        <button>4 .reduce()</button>
+        <button>5 .sort2()</button>
+        <button>6 List Ex.</button>
+        <button>7 Sort Ex.</button>
+        <button>8 Reduce Ex.</button>
+    </div>
+    <div class="answwer-wrapper">
+        <h2 id="answer-title"></h2>
+        <div id="answer-body"></div>
     </div>
     <script src="./js/array-cardio-day-01.js"></script>
 </body>
