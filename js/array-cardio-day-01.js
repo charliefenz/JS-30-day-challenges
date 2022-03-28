@@ -101,11 +101,19 @@ function filterEx1() {
     printResults(filtered);
 }
 
-// Array.prototype.filter()
-    // 1. Filter the list of inventors for those who were born in the 1500's
+// 2. Give us an array of the inventors first and last names
+function mappingEx2() {
+
+    let filtered = [
+        2,
+        inventors.map((inventor) => `${inventor.first} ${inventor.last}`)
+    ]
+
+    printResults(filtered, false);
+}  
 
     // Array.prototype.map()
-    // 2. Give us an array of the inventors first and last names
+
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
