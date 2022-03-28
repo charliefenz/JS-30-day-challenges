@@ -21,6 +21,76 @@ const people = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
+function printResults(results) {
+    let targetTitle = document.getElementById('answer-title');
+    let targetBody = document.getElementById('answer-body');
+
+    targetTitle.innerHTML = printTitle(results[0]);
+    targetBody.innerHTML = printBody(results[1]);
+    hljs.highlightAll();
+}
+
+function printTitle(exerciseNum) {
+    let title = undefined;
+
+    switch (exerciseNum) {
+        case 1:
+            title = '1. Filter the list of inventors for those who were born in the 1500\'s.'
+            break;
+        case 2:
+            title = '2. Give us an array of the inventors first and last names.'
+            break;
+        case 3:
+            title = '3. Sort the inventors by birthdate, oldest to youngest.'
+        break;
+        case 4:
+            title = '4. How many years did all the inventors live all together?.'
+            break;
+        case 5:
+            title = '5. Sort the inventors by years lived.'
+            break;
+        case 6:
+            title = '6. create a list of Boulevards in Paris that contain \'de\' anywhere in the name https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris'
+            break;
+        case 7:
+            title = '7. Sort the people alphabetically by last name.'
+            break;
+        case 8:
+            title = `Sum up the instances of each of these ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];`
+            break;
+        default:
+            title = 'no title';
+            break;
+    }
+
+    return title;
+}
+
+function printBody(results) {
+    let body = `<pre><code class="language-javascript">${prepareArray(results)}</code></pre>`
+
+    return body;
+}
+
+function prepareArray(results) {
+    let preparedArray = "[";
+
+    results.map((resultObj) => {
+        preparedArray += "{";
+        for (let property in resultObj) {
+            if (typeof(resultObj[property]) == 'string') {
+                preparedArray += `${property}: "${resultObj[property]}", `
+            } else {
+                preparedArray += `${property}: ${resultObj[property]}, `
+            }
+        }
+        preparedArray = preparedArray.replace(/[,]\s$/, '}, ')
+    })
+
+    preparedArray = preparedArray.replace(/[,]\s$/,"]");
+
+    return preparedArray;
+}
 // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
