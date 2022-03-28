@@ -81,7 +81,7 @@ function printBody(results, hasObjsInside) {
 }
 
 function prepareArrayWithObjs(results) {
-    let preparedArray = "[";
+    let preparedArray = `[\n `;
 
     results.forEach((resultObj) => {
         preparedArray += "{";
@@ -92,10 +92,10 @@ function prepareArrayWithObjs(results) {
                 preparedArray += `${property}: ${resultObj[property]}, `
             }
         }
-        preparedArray = preparedArray.replace(/[,]\s$/, '}, ')
+        preparedArray = preparedArray.replace(/[,]\s$/, '},\n ')
     })
 
-    preparedArray = preparedArray.replace(/[,]\s$/,"]");
+    preparedArray = preparedArray.replace(/[,]\n\s$/,"\n]");
 
     return preparedArray;
 }
