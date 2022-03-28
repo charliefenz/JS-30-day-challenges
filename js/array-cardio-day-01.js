@@ -75,7 +75,7 @@ function printBody(results) {
 function prepareArray(results) {
     let preparedArray = "[";
 
-    results.map((resultObj) => {
+    results.forEach((resultObj) => {
         preparedArray += "{";
         for (let property in resultObj) {
             if (typeof(resultObj[property]) == 'string') {
