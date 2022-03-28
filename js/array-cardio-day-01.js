@@ -21,12 +21,12 @@ const people = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
-function printResults(results, hasObJsInside) {
+function printResults(results, hasObjsInside) {
     let targetTitle = document.getElementById('answer-title');
     let targetBody = document.getElementById('answer-body');
 
     targetTitle.innerHTML = printTitle(results[0]);
-    targetBody.innerHTML = printBody(results[1], hasObJsInside);
+    targetBody.innerHTML = printBody(results[1], hasObjsInside);
     hljs.highlightAll();
 }
 
