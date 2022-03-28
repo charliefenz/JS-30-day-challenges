@@ -119,7 +119,7 @@ function filterEx1() {
         inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600)
     ];
 
-    printResults(filtered);
+    printResults(filtered, true);
 }
 
 // 2. Give us an array of the inventors first and last names
