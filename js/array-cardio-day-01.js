@@ -21,12 +21,12 @@ const people = [
     'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
-function printResults(results) {
+function printResults(results, hasObJsInside) {
     let targetTitle = document.getElementById('answer-title');
     let targetBody = document.getElementById('answer-body');
 
     targetTitle.innerHTML = printTitle(results[0]);
-    targetBody.innerHTML = printBody(results[1]);
+    targetBody.innerHTML = printBody(results[1], hasObJsInside);
     hljs.highlightAll();
 }
 
@@ -66,13 +66,21 @@ function printTitle(exerciseNum) {
     return title;
 }
 
-function printBody(results) {
-    let body = `<pre><code class="language-javascript">${prepareArray(results)}</code></pre>`
+function printBody(results, hasObjsInside) {
+    let formattedResult = undefined;
+    
+    if (hasObjsInside) {
+        formattedResult = prepareArrayWithObjs(results);
+    } else {
+        formattedResult = prepareArray(results);
+    }
+    
+    let body = `<pre><code class="language-javascript">${formattedResult}</code></pre>`
 
     return body;
 }
 
-function prepareArray(results) {
+function prepareArrayWithObjs(results) {
     let preparedArray = "[";
 
     results.forEach((resultObj) => {
@@ -92,6 +100,19 @@ function prepareArray(results) {
     return preparedArray;
 }
 
+function prepareArray(results) {
+    let preparedArray = "[";
+
+    results.forEach((resultItem) => {
+        preparedArray += `"${resultItem}", ` 
+    })
+
+    preparedArray = preparedArray.replace(/[,]\s$/,"]");
+
+    return preparedArray;
+}
+
+// 1. Filter the list of inventors for those who were born in the 1500's
 function filterEx1() {
     let filtered = [
         1,
