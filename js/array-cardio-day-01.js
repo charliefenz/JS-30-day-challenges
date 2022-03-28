@@ -101,13 +101,13 @@ function prepareArrayWithObjs(results) {
 }
 
 function prepareArray(results) {
-    let preparedArray = "[";
+    let preparedArray = `[\n `;
 
     results.forEach((resultItem) => {
-        preparedArray += `"${resultItem}", ` 
+        preparedArray += `"${resultItem}",\n ` 
     })
 
-    preparedArray = preparedArray.replace(/[,]\s$/,"]");
+    preparedArray = preparedArray.replace(/[,]\n\s$/,"\n]");
 
     return preparedArray;
 }
