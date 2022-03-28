@@ -142,10 +142,30 @@ function sortingEx3() {
     printResults(sorted, true);
 }
 
+// 4. How many years did all the inventors live all together?
+function reducingEx4() {
+    let targetTitle = document.getElementById('answer-title');
+    let targetBody = document.getElementById('answer-body');
+    let yearsLivedArr = getYearsLived();
+    let accYearsLived = yearsLivedArr.reduce((acc, curr) => {return acc + curr}, 0);
+
+    targetTitle.innerHTML = printTitle(4);
+    targetBody.innerHTML = `Inventors lived ${accYearsLived} years all together`;
+}
+
+function getYearsLived() {
+    let yearsLivedArr = inventors.map((inventor) => {
+        let yearsLived = inventor.passed - inventor.year;
+        return yearsLived
+    })
+
+    return yearsLivedArr;
+}
+
     // Array.prototype.map()
 
     // Array.prototype.reduce()
-    // 4. How many years did all the inventors live all together?
+
 
     // 5. Sort the inventors by years lived
 
