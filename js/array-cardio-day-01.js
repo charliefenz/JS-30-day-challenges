@@ -146,17 +146,28 @@ function sortingEx3() {
 function reducingEx4() {
     let targetTitle = document.getElementById('answer-title');
     let targetBody = document.getElementById('answer-body');
-    let yearsLivedArr = getYearsLived();
-    let accYearsLived = yearsLivedArr.reduce((acc, curr) => {return acc + curr}, 0);
+    let arrInventorsYearsLived = createArrInventorsYearsLived();
+    let accYearsLived = arrInventorsYearsLived.reduce((acc, curr) => {return acc + curr.yearsLived}, 0);
 
     targetTitle.innerHTML = printTitle(4);
     targetBody.innerHTML = `Inventors lived ${accYearsLived} years all together`;
 }
 
-function getYearsLived() {
-    let yearsLivedArr = inventors.map((inventor) => {
-        let yearsLived = inventor.passed - inventor.year;
-        return yearsLived
+function createArrInventorsYearsLived() {
+    let inventorsYearsLived = inventors.map((inventor) => {
+        let inventorObj = {
+            first: inventor.first, 
+            last: inventor.last, 
+            year: inventor.year, 
+            passed: inventor.passed,
+            yearsLived: inventor.passed - inventor.year 
+        }
+        return inventorObj;
+    })
+
+    return inventorsYearsLived;
+}
+
     })
 
     return yearsLivedArr;
