@@ -131,13 +131,18 @@ function mappingEx2() {
     ]
 
     printResults(filtered, false);
-}  
+}
+
+// 3. Sort the inventors by birthdate, oldest to youngest
+function sortingEx3() {
+    let sorted = [
+        3,
+        inventors.sort((a, b) => b.year - a.year)
+    ]
+    printResults(sorted, true);
+}
 
     // Array.prototype.map()
-
-
-    // Array.prototype.sort()
-    // 3. Sort the inventors by birthdate, oldest to youngest
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
