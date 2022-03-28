@@ -168,9 +168,29 @@ function createArrInventorsYearsLived() {
     return inventorsYearsLived;
 }
 
+// 5. Sort the inventors by years lived
+function sortingEx5() {
+    let arrInventorsYearsLived = createArrInventorsYearsLived();
+    let sortedArrInvestorsYearsLived = arrInventorsYearsLived.sort((a, b) => b.yearsLived - a.yearsLived);
+    let results = [
+        5,
+        inventorsToOriginalFormat(sortedArrInvestorsYearsLived) 
+    ]
+    printResults(results, true);
+}
+
+function inventorsToOriginalFormat(inventorsChangedFormat) {
+    let inventorsOriginalFormat = inventorsChangedFormat.map((inventor) => {
+        let inventorObj = {
+            first: inventor.first, 
+            last: inventor.last, 
+            year: inventor.year, 
+            passed: inventor.passed,
+        }
+        return inventorObj;
     })
 
-    return yearsLivedArr;
+    return inventorsOriginalFormat;
 }
 
     // Array.prototype.map()
@@ -178,7 +198,7 @@ function createArrInventorsYearsLived() {
     // Array.prototype.reduce()
 
 
-    // 5. Sort the inventors by years lived
+    // 5. 
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
