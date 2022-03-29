@@ -194,6 +194,12 @@ function inventorsToOriginalFormat(inventorsChangedFormat) {
 }
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+async function filteringEx6() {
+    let searchString = 'de';
+    let arrBoulevards = await getBoulevards();
+    let filteredArrBoulevards = arrBoulevards.filter((boulevard) => boulevard.title.includes(searchString));
+    printResults([6, filteredArrBoulevards], true);
+}
 
 async function getBoulevards() {
     try {
