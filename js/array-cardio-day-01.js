@@ -193,18 +193,19 @@ function inventorsToOriginalFormat(inventorsChangedFormat) {
     return inventorsOriginalFormat;
 }
 
-    // Array.prototype.map()
+// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-    // Array.prototype.reduce()
+async function getBoulevards() {
+    try {
+        let request = await fetch('https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=categorymembers&indexpageids=1&cmtitle=Category%3ABoulevards_in_Paris&cmlimit=40');
+        let data = await request.json();
+        return data.query.categorymembers;
+    } catch (error) {
+        console.error(error);
+    }
+} 
 
-
-    // 5. 
-
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
-
-    // 7. sort Exercise
+// 7. sort Exercise
     // Sort the people alphabetically by last name
 
     // 8. Reduce Exercise
