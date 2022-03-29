@@ -220,7 +220,15 @@ function sortingEx7() {
     printResults(sorted, false);
 }
 
-    // 8. Reduce Exercise
-    // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+// 8. Sum up the instances of each of data
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+function summingEx8(){
+    let cleanedData = data.reduce((acc, curr) => acc.includes(curr) ? acc : [...acc, curr], []);
+    let answerTitle = document.getElementById('answer-title');
+    let answerBody = document.getElementById('answer-body');
+    
+    answerTitle.innerHTML = printTitle(8);
+    answerBody.innerHTML = `There are ${cleanedData.length} instances`;
+}
 
