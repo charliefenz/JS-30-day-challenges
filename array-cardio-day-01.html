@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Cardio Day 01</title>
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="stylesheet" href="./css/array-cardio-day-01.css" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs2015.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <h1>Array Cardio Day 01</h1>
+    <div class="title">
+        <p>Given these two arrays: </p>
+        <ol>
+            <li>
+                <pre><code class="language-javascript">
+const inventors = [
+    { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+    { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+    { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+    { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+    { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+    { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+    { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+    { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+    { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+    { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+    { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+    { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+];
+                </code></pre>
+            </li>
+            <li>
+                <pre><code class="language-javascript">
+const people = ['Bernhard, Sandra', 'Bethea, Erin', 'Becker, Carl', 'Bentsen, Lloyd', 'Beckett, Samuel', 'Blake, William', 'Berger, Ric', 'Beddoes, Mick', 'Beethoven, Ludwig',
+'Belloc, Hilaire', 'Begin, Menachem', 'Bellow, Saul', 'Benchley, Robert', 'Blair, Robert', 'Benenson, Peter', 'Benjamin, Walter', 'Berlin, Irving',
+'Benn, Tony', 'Benson, Leana', 'Bent, Silas', 'Berle, Milton', 'Berry, Halle', 'Biko, Steve', 'Beck, Glenn', 'Bergman, Ingmar', 'Black, Elk', 'Berio, Luciano',
+'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
+'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'];
+                </code></pre>
+            </li>
+        </ol>
+    </div>
+    <div class="button-range">
+        <button onclick="filterEx1()">1 .filter()</button>
+        <button onclick="mappingEx2()">2 .map()</button>
+        <button onclick="sortingEx3()">3 .sort()</button>
+        <button onclick="reducingEx4()">4 .reduce()</button>
+        <button onclick="sortingEx5()">5. sort2()</button>
+        <button onclick="filteringEx6()">6 List Ex.</button>
+        <button onclick="sortingEx7()">7 Sort Ex.</button>
+        <button onclick="summingEx8()">8 Reduce Ex.</button>
+    </div>
+    <div class="answwer-wrapper">
+        <h2 id="answer-title"></h2>
+        <div id="answer-body"></div>
+    </div>
+    <script src="./js/array-cardio-day-01.js"></script>
+</body>
+</html>

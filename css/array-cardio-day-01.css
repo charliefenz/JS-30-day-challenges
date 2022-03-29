@@ -1,0 +1,16 @@
+body {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+h1, div {
+    margin: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+code {
+    font-family: 'consolas';
+}
