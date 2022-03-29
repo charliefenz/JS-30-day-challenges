@@ -211,8 +211,14 @@ async function getBoulevards() {
     }
 } 
 
-// 7. sort Exercise
-    // Sort the people alphabetically by last name
+// 7. Sort the people alphabetically by last name
+function sortingEx7() {
+    let sorted = [
+        7,
+        people.sort()
+    ]
+    printResults(sorted, false);
+}
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
