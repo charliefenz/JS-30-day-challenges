@@ -4,6 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .image-panels-wrapper {
@@ -15,14 +16,102 @@ body {
 .image-panel {
     width: 20%;
     height: 90vh;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 70% 15%;
     transition: width 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-1 {
+    background-image: url("../assets/images/low-flying_NWAPXFUMDW.jpg");
+}
+
+.image-2 {
+    background-image: url("../assets/images/StockSnap_C7LDIUGZ9K.jpg");
+}
+
+.image-3 {
+    background-image: url("../assets/images/StockSnap_G55SJ86KZV.jpg");
+}
+
+.image-4 {
+    background-image: url("../assets/images/StockSnap_NBETT9PEZG.jpg");
+}
+
+.image-5 {
+    background-image: url("../assets/images/StockSnap_NHLBAZPYFG.jpg");
+}
+
+.caption-wrapper {
+    height: auto;
+    padding: 0.1rem 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 3em;
+}
+
+.top {
+    align-self: end;
+    transform: translateY(-1000px);
+    font-size: 1.5em;
+}
+
+.middle {
+    align-self: center;
+}
+
+.bottom {
+    align-self: top;
+    transform: translateY(1000px);
+    font-size: 1.5em;
 }
 
 .selected {
     width: 60%;
+}
+
+.animation-commons {
+    animation-fill-mode: forwards;
+    animation-duration:1s;
+    animation-timing-function: ease-out;
+}
+
+.top-entrance {
+    animation-name:top-entrance;
+}
+
+.top-exit {
+    animation-name:top-exit;
+}
+
+.bottom-entrance{
+    animation-name:bottom-entrance;
+}
+
+.bottom-exit {
+    animation-name:bottom-exit;
+}
+  
+@keyframes top-entrance {
+    from  {transform:translateY(-1000px);}
+    to { transform:translateY(0)}
+}
+
+@keyframes top-exit {
+    from  {transform:translateY(0);}
+    to { transform:translateY(-1000px)}
+}
+
+@keyframes bottom-entrance {
+    from  {transform:translateY(1000px);}
+    to { transform:translateY(0)}
+}
+
+@keyframes bottom-exit {
+    from  {transform:translateY(0);}
+    to { transform:translateY(1000px)}
 }
