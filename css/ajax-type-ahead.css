@@ -36,18 +36,47 @@ h1 {
     flex-direction: column;
 }
 
-.input-wrapper > * {
+.input-wrapper > *, #dropdown-menu {
     display: block;
     width: 50%;
-    margin: 0.25rem 0;
 }
 
-label {
+.input-wrapper > label {
+    margin-bottom: 0.5rem;
     font-weight: bold;
 }
 
-input {
+input, #dropdown-menu {
     border: 0;
     border-radius: 5px;
     padding: 1rem 10px;
+}
+
+#dropdown-menu {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 245, 245);
+    color: grey;
+}
+
+#dropdown-menu > span {
+    display: block;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    padding: 1rem;
+}
+
+#dropdown-menu > span:hover {
+    background-color: rgb(136, 136, 136);
+    color: white;
+    cursor: pointer;
+}
+
+#error-message {
+    display: none;
+    color: red;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.5rem;
 }

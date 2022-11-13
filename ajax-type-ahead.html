@@ -14,7 +14,10 @@
     <div class="form">
         <div class="input-wrapper">
             <label for="input-location">Search for a location:</label>
-            <input id="input-location" type="text" placeholder="Type in the location..." onclick="inputClick()">
+            <input id="input-location" type="text" placeholder="Type in the location..." onclick="inputClick()" autocomplete="off">
+            <span id="error-message">An error ocurred trying to fetch suggested addresses</span>
+        </div>
+        <div id="dropdown-menu">
         </div>
     </div>
     <script src="/js/ajax-type-ahead.js"></script>
