@@ -15,7 +15,7 @@ h1 {
     text-align: center;
 }
 
-form {
+.form {
     width: 100%;
     display: flex;
     justify-content: center;
