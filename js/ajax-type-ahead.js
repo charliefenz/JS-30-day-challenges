@@ -1,34 +1,43 @@
 const inputElement = document.getElementById("input-location");
 const dropDownElement = document.getElementById("dropdown-menu");
+const addresesListElement = document.querySelector(".addresses-list");
 const errorMessage = document.getElementById("error-message");
+const spinnerElement = document.querySelector(".spinner");
 const placeHolder = inputElement.placeholder;
 const baseUrl = "https://api.geocodify.com/v2/autocomplete?api_key=c8fe4855253c67be8e266d1becf5075708deeb08";
 const messageNoResult = "No Matching results found...";
+let showSpinner;
 let response, unitResponseObject;
 let addressesArray = [];
 
 const inputClick = async () => {
+    let count = dropDownElement.childElementCount;
+
     console.log("inputClick");
     inputElement.placeholder = "";
-    if (dropDownElement.childElementCount > 1) dropDownElement.style.visibility = "visible";
+    if (count > 1) dropDownElement.style.visibility = "visible";
 };
 
 const inputActions = async () => {
-    console.log("inputActions")
     if (inputElement.value === "") {
         inputElement.placeholder = placeHolder;
         cleanAddressSuggestions();
     } else {
         addressesArray = [];
+        showSpinner = true;
+        controlSpinner(showSpinner);
         await getData(inputElement.value)
             .then(() => {
                 getAddressesArray();
                 checkArrayResponse();
                 fillAddressSuggestions();
             })
-            .catch(() => {
+            .catch((e) => {
+                console.error(e);
                 errorMessage.style.display = "block";
             });
+        showSpinner = false;
+        controlSpinner(showSpinner);
     };
 }
 
@@ -69,11 +78,11 @@ const fillAddressSuggestions = (size = 10) => {
 }
 
 const cleanAddressSuggestions = () => {
-    const count = dropDownElement.childElementCount;
+    const count = addresesListElement.childElementCount;
 
     if (count > 0) {
         for (let i = 0; i < count; i++) {
-            dropDownElement.removeChild(dropDownElement.lastChild);
+            addresesListElement.removeChild(addresesListElement.lastChild);
         }
     }
     dropDownElement.style.visibility = "hidden";
@@ -90,6 +99,19 @@ const selectAddress = (event) => {
     if (event.target.innerText !== messageNoResult) inputElement.value = event.target.innerText;
     addressesArray = [];
     cleanAddressSuggestions();
+}
+
+const controlSpinner = (showSpinner) => {
+    console.log('spinener Control', showSpinner)
+    console.log(spinnerElement)
+    if (showSpinner) {
+        dropDownElement.style.visibility = "visible";
+        spinnerElement.style.display = "flex";
+        addresesListElement.style.display = "none";
+    } else {
+        spinnerElement.style.display = "none";
+        addresesListElement.style.display = "flex";
+    }
 }
 
 inputElement.addEventListener("input", inputActions);

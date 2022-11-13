@@ -57,17 +57,21 @@ input, #dropdown-menu {
     display: flex;
     flex-direction: column;
     background-color: rgb(245, 245, 245);
-    color: grey;
 }
 
-#dropdown-menu > span {
-    display: block;
+.addresses-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.address {
     border-radius: 5px;
     font-size: 0.85rem;
     padding: 1rem;
+    color: #808080;
 }
 
-#dropdown-menu > span:hover {
+.address:hover {
     background-color: rgb(136, 136, 136);
     color: white;
     cursor: pointer;
@@ -79,4 +83,11 @@ input, #dropdown-menu {
     font-size: 0.75rem;
     font-weight: bold;
     padding: 0.5rem;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
 }
