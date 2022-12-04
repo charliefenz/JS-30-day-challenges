@@ -65,16 +65,20 @@ const fillAddressSuggestions = (size = 10) => {
     let addressElement, address;
 
     cleanAddressSuggestions();
-    addressesArray.forEach((element, i) => {
-        if (i < size) {
-            addressElement = document.createElement("span");
-            address = document.createTextNode(element);
-            addressElement.append(address);
-            addressElement.addEventListener('click', selectAddress);
-            dropDownElement.append(addressElement);
-        }
-    })
-    dropDownElement.style.visibility = "visible";
+    if (inputElement.value !== '') {
+        addressesArray.forEach((element, i) => {
+            if (i < size) {
+                addressElement = document.createElement("div");
+                addressElement.addEventListener('click', selectAddress);
+                address = document.createTextNode(element);
+                addressElement.append(address);
+                addressElement.setAttribute('class', 'address');
+                addresesListElement.append(addressElement);
+            }
+        })
+        dropDownElement.style.visibility = "visible";
+    }
+    
 }
 
 const cleanAddressSuggestions = () => {
