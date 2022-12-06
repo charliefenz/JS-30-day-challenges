@@ -91,3 +91,12 @@ input, #dropdown-menu {
     padding: 0;
     margin: 0;
 }
+
+.match {
+    background-color: #c1c42c;
+    display: inline-block;
+    padding: 1px;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+}
