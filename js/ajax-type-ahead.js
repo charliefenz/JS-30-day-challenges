@@ -6,16 +6,22 @@ const spinnerElement = document.querySelector(".spinner");
 const placeHolder = inputElement.placeholder;
 const baseUrl = "https://api.geocodify.com/v2/autocomplete?api_key=c8fe4855253c67be8e266d1becf5075708deeb08";
 const messageNoResult = "No Matching results found...";
+const matchClass = "match";
+const addressSuggestionClass = "address";
 let showSpinner;
 let response, unitResponseObject;
 let addressesArray = [];
 
 const inputClick = async () => {
-    let count = dropDownElement.childElementCount;
-
-    console.log("inputClick");
-    inputElement.placeholder = "";
-    if (count > 1) dropDownElement.style.visibility = "visible";
+    if (inputElement.value === "") {
+        inputElement.placeholder = placeHolder;
+    } else {
+        if (dropDownElement.style.visibility === 'visible') {
+            dropDownElement.style.visibility = "hidden";
+        } else {
+            await inputActions();
+        }
+    }
 };
 
 const inputActions = async () => {
@@ -62,20 +68,9 @@ const checkArrayResponse = () => {
 }
 
 const fillAddressSuggestions = (size = 10) => {
-    let addressElement, address;
-
     cleanAddressSuggestions();
     if (inputElement.value !== '') {
-        addressesArray.forEach((element, i) => {
-            if (i < size) {
-                addressElement = document.createElement("div");
-                addressElement.addEventListener('click', selectAddress);
-                address = document.createTextNode(element);
-                addressElement.append(address);
-                addressElement.setAttribute('class', 'address');
-                addresesListElement.append(addressElement);
-            }
-        })
+        prepareAddressesArray(inputElement.value, matchClass, addressSuggestionClass, size);
         dropDownElement.style.visibility = "visible";
     }
     
@@ -106,8 +101,6 @@ const selectAddress = (event) => {
 }
 
 const controlSpinner = (showSpinner) => {
-    console.log('spinener Control', showSpinner)
-    console.log(spinnerElement)
     if (showSpinner) {
         dropDownElement.style.visibility = "visible";
         spinnerElement.style.display = "flex";
@@ -116,6 +109,36 @@ const controlSpinner = (showSpinner) => {
         spinnerElement.style.display = "none";
         addresesListElement.style.display = "flex";
     }
+}
+
+const prepareAddressesArray = (inputText, spanClassName, divClassName, size) => {
+    let inputTextRegex = new RegExp(inputText, 'i');
+    let indexMatch, divElement, spanElement, spanSubString, divSubStringBefore, divSubStringAfter;
+
+    addressesArray.forEach((address, i) => {
+        if (i < size) {
+            indexMatch = address.search(inputTextRegex);
+            divElement = document.createElement('div');
+            spanElement = document.createElement('span');
+            spanElement.setAttribute('class', spanClassName);
+            divElement.addEventListener('click', selectAddress);
+            divElement.setAttribute('class', divClassName);
+            divSubStringBefore = address.slice(0, indexMatch);
+            spanSubString = address.slice(indexMatch, indexMatch + inputText.length);
+            divSubStringAfter = address.slice(indexMatch + inputText.length);           
+
+            if (indexMatch < 0) {
+                divElement.append(document.createTextNode(address));
+            } else if (indexMatch === 0) {
+                spanElement.append(document.createTextNode(spanSubString));
+                divElement.append(spanElement, document.createTextNode(divSubStringAfter));
+            } else {
+                spanElement.append(document.createTextNode(spanSubString));
+                divElement.append(document.createTextNode(divSubStringBefore), spanElement, document.createTextNode(divSubStringAfter));
+            }
+            addresesListElement.append(divElement);
+        }
+    })
 }
 
 inputElement.addEventListener("input", inputActions);
